@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ufc.deha.ufc9.dolphin.downloader.gui.view.LinkDownloaderViewerController">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <FlowPane hgap="5.0" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="30.0" prefWidth="600.0">
+               <children>
+                  <Label text="Referência: " />
+                  <ComboBox fx:id="referenciaCbx" prefWidth="120.0" />
+                  <Label text="Estado: " />
+                  <ComboBox fx:id="estadoCbx" prefWidth="120.0" />
+                  <Label text="Desoneração: " />
+                  <ComboBox fx:id="desoneracaoCbx" prefWidth="120.0" />
+               </children>
+            </FlowPane>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="NEVER" minWidth="10.0" />
+                  <ColumnConstraints hgrow="ALWAYS" maxWidth="1.7976931348623157E308" minWidth="10.0" />
+                  <ColumnConstraints halignment="CENTER" hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0" prefWidth="80.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="Saída: " />
+                  <TextField fx:id="saidaEnderecoText" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="480.0" GridPane.columnIndex="1" />
+                  <Button mnemonicParsing="false" onAction="#handleAlterarSaida" prefWidth="70.0" text="Alterar..." GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <TableView fx:id="table" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="dateColumn" editable="false" maxWidth="-1.0" minWidth="75.0" prefWidth="75.0" resizable="false" text="Data" />
+            <TableColumn fx:id="estadoColumn" editable="false" maxWidth="-Infinity" minWidth="75.0" prefWidth="75.0" resizable="false" text="Estado" />
+            <TableColumn fx:id="desoneracaoColumn" editable="false" maxWidth="-Infinity" minWidth="80.0" resizable="false" text="Desoneração" />
+          <TableColumn fx:id="linkColumn" editable="false" maxWidth="1.7976931348623157E308" minWidth="-1.0" prefWidth="285.0" text="Link" />
+        </columns>
+      </TableView>
+   </center>
+   <right>
+      <AnchorPane prefWidth="80.0" BorderPane.alignment="CENTER">
+         <children>
+            <ProgressIndicator fx:id="progressIndicator" layoutX="1.0" layoutY="271.0" prefHeight="50.0" prefWidth="60.0" progress="0.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+            <Button layoutX="3.5282371044158936" layoutY="59.99342155456543" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#handleBaixar" text="Baixar" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="35.0" />
+            <Button fx:id="atualizarBtn" layoutX="3.5282371044158936" layoutY="84.99342155456543" mnemonicParsing="false" onAction="#handleAtualizar" text="Atualizar" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+            <Label fx:id="labelProgress" alignment="CENTER" layoutX="4.0" layoutY="333.0" text="Baixando..." wrapText="true" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+         </children>
+      </AnchorPane>
+   </right>
+   <padding>
+      <Insets bottom="5.0" left="5.0" top="5.0" />
+   </padding>
+</BorderPane>
